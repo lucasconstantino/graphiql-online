@@ -70,16 +70,18 @@ function graphQLFetcher(endpoint) {
 var ChromeiQL = React.createClass({
   getInitialState: function() {
     return {
-      currentEndpoint: this.props.endpoint
+      currentEndpoint: null,
+      newEndpoint: this.props.endpoint
     };
   },
 
   render: function() {
     var graphqlConsole = null;
-    if (this.state.currentEndpoint) {
+    var endpoint = this.state.currentEndpoint || this.state.newEndpoint;
+    if (endpoint) {
       graphqlConsole = rc(GraphiQL, {
         id: "graphiql",
-        fetcher: graphQLFetcher(this.state.currentEndpoint),
+        fetcher: graphQLFetcher(endpoint),
         query: parameters.query,
         variables: parameters.variables,
         onEditQuery: onEditQuery,
@@ -87,10 +89,14 @@ var ChromeiQL = React.createClass({
       });
     }
 
+    if (this.state.newEndpoint) {
+      setTimeout(this.updateEndpointState, 500);
+    }
+
     return (
       rc('div', {id: "application"},
         rc('div', {id: "url-bar"},
-          rc('input', {type: "text", id: "url-box", onChange: this.updateEndpoint}),
+          rc('input', {type: "text", id: "url-box", defaultValue: endpoint, onChange: this.updateEndpoint}),
           rc('button', {id: "url-save-button", onClick: this.setEndpoint}, "Set endpoint")
         ),
         graphqlConsole
@@ -98,8 +104,22 @@ var ChromeiQL = React.createClass({
     );
   },
 
+  updateEndpointState: function() {
+    this.setState({ currentEndpoint: this.state.newEndpoint, newEndpoint: null });
+    $('button.execute-button').click();
+  },
+
   setEndpoint: function() {
-    this.setState({ currentEndpoint: window.chromeiqlEndpoint });
+    var newEndpoint = window.chromeiqlEndpoint;
+    var setState = this.setState.bind(this);
+    chrome.storage.local.set(
+      {"chromeiqlEndpoint": newEndpoint},
+      function () {
+        if (!chrome.runtime.lastError) {
+          setState({ newEndpoint: newEndpoint });
+        }
+      }
+    );
   },
 
   updateEndpoint: function(e) {
