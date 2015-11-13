@@ -1,0 +1,27 @@
+#application {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+}
+
+#url-bar {
+  width: 500px;
+  position: absolute;
+  text-align: center;
+  margin-top: 5px;
+  left: 50%;
+  margin-left: -250px;
+}
+
+#url-box, #url-save-button {
+  height: 30px;
+  box-sizing: border-box;
+  margin: 3px auto;
+}
+
+#url-box {
+  width: 400px;
+  margin-right: 10px;
+}

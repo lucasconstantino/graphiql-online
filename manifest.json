@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "ChromeiQL",
+  "version": "0.1",
+  "description": "Chrome app wrapper for the GraphiQL tool",
+  "app": {
+    "launch": {
+      "local_path": "graphiql.html"
+    }
+  },
+  "icons": {
+    "128": "public/chromeiql_logo.png"
+  },
+  "permissions": [
+    "http://*/",
+    "https://*/",
+    "storage"
+  ]
+}
