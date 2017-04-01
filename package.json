@@ -7,6 +7,7 @@
   "author": "Lucas Constantino Silva <lucasconstantinosilva@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "clean": "rm -Rf ./dist",
     "build": "webpack",
     "dev": "webpack-dev-server",
     "deploy": "gh-pages -d dist"

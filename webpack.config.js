@@ -13,5 +13,8 @@ module.exports = {
       { test: /\.css$/, use: ['style-loader', 'css-loader'] }
     ]
   },
-  plugins: [new HtmlWebpackPlugin()]
+  plugins: [new HtmlWebpackPlugin({
+    title: 'GraphiQL Online',
+    favicon: path.resolve('./src/favicon.ico')
+  })]
 }
