@@ -1,0 +1,9 @@
+@import '../node_modules/graphiql/graphiql.css';
+
+body {
+  margin: 0;
+}
+
+#container {
+  height: 100vh;
+}
