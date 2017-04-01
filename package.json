@@ -1,0 +1,9 @@
+{
+  "name": "any-graphiql",
+  "version": "1.0.0",
+  "description": "GraphiQL Online",
+  "main": "index.html",
+  "repository": "https://github.com/lucasconstantino/graphiql-online",
+  "author": "Lucas Constantino Silva <lucasconstantinosilva@gmail.com>",
+  "license": "MIT"
+}
