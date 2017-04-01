@@ -1,5 +1,5 @@
-# ChromeiQL
+# GraphiQL Online
 
-Making the great [GraphiQL tool](https://github.com/graphql/graphiql/) available anywhere as a Chrome extension.
+Online available instance of [GraphiQL tool](https://github.com/graphql/graphiql/) for anyone to use.
 
-Based on the [GraphiQL example code](https://github.com/graphql/graphiql/tree/master/example).
+> Based on the [ChromeiQL](https://github.com/ermanc/ChromeiQL) Google Chrome extension.
