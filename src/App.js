@@ -2,9 +2,10 @@ import React from 'react'
 import GraphiQL from 'graphiql'
 import fetch from 'isomorphic-fetch'
 import { isUri } from 'valid-url'
+import * as queryString from 'query-string'
 
 const options = { method: 'post', headers: { 'Content-Type': 'application/json' } }
-const endpoint = 'https://api.graph.cool/simple/v1/ciyz901en4j590185wkmexyex' // Initial
+const defaultEndpoint = 'https://api.graph.cool/simple/v1/ciyz901en4j590185wkmexyex' // Initial
 
 const defaultQuery = `
 # Welcome to GraphiQL
@@ -49,6 +50,8 @@ export default class App extends React.Component {
   constructor (props) {
     super(props)
 
+    const query = queryString.parse(location.search)
+    const endpoint = query.endpoint || defaultEndpoint
     this.state = {
       defaultQuery,
       endpoint,
@@ -68,6 +71,13 @@ export default class App extends React.Component {
   changeEndpoint = endpoint => this.setState({
     endpoint,
     fetcher: this.createFetcher(endpoint)
+  }, () => {
+    const query = queryString.stringify({ endpoint })
+    if (history.replaceState) {
+      const newURL = new URL(location.href);
+      newURL.search = query;
+      history.replaceState({ path: newURL.href }, '', newURL.href);
+    } else location.search = query;
   })
 
   /**
