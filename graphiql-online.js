@@ -32923,7 +32923,7 @@ var _validUrl = __webpack_require__(429);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var options = { method: 'post', headers: { 'Content-Type': 'application/json' } };
-var endpoint = 'https://api.graph.cool/simple/v1/ciyz901en4j590185wkmexyex'; // Initial
+var endpoint = 'https://countries.trevorblades.com/'; // Initial
 
 var defaultQuery = '\n# Welcome to GraphiQL\n#\n# GraphiQL is an in-browser tool for writing, validating, and\n# testing GraphQL queries.\n#\n# Type queries into this side of the screen, and you will see intelligent\n# typeaheads aware of the current GraphQL type schema and live syntax and\n# validation errors highlighted within the text.\n#\n# GraphQL queries typically start with a "{" character. Lines that starts\n# with a # are ignored.\n#\n# An example GraphQL query might look like:\n#\n#     {\n#       field(arg: "value") {\n#         subField\n#       }\n#     }\n#\n# Keyboard shortcuts:\n#\n#       Run Query:  Ctrl-Enter (or press the play button above)\n#\n#   Auto Complete:  Ctrl-Space (or just start typing)\n#\n# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #\n# Default endpoint is an instance of https://www.graph.cool/\n# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #\n\nquery {\n  allUsers {\n    id\n    name\n  }\n}\n';
 
