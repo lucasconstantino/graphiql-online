@@ -38,8 +38,7 @@ const defaultQuery = `
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 query {
-  allUsers {
-    id
+  countries {
     name
   }
 }
