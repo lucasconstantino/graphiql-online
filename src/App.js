@@ -4,7 +4,7 @@ import fetch from 'isomorphic-fetch'
 import { isUri } from 'valid-url'
 
 const options = { method: 'post', headers: { 'Content-Type': 'application/json' } }
-const endpoint = 'https://api.graph.cool/simple/v1/ciyz901en4j590185wkmexyex' // Initial
+const endpoint = 'https://countries.trevorblades.com/' // Initial
 
 const defaultQuery = `
 # Welcome to GraphiQL
